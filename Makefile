@@ -5,9 +5,10 @@ REL := $(shell cat rel)
 SRC_RPM := python-blivet-$(VERSION)-$(REL).$(DIST).src.rpm
 SRC_FILE := blivet-$(VERSION).tar.gz blivet-$(VERSION)-tests.tar.gz
 
-BUILDER_DIR ?= ../builder-rpm
+BUILDER_DIR ?= ../..
+SRC_DIR ?= qubes-src
 UNTRUSTED_SUFF := .UNTRUSTED
-FETCH_CMD := $(BUILDER_DIR)/scripts/get_sources_from_srpm
+FETCH_CMD := $(BUILDER_DIR)/$(SRC_DIR)/builder-rpm/scripts/get_sources_from_srpm
 
 SHELL := /bin/bash
 
