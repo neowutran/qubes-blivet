@@ -4,6 +4,7 @@ REL := $(shell cat rel)
 
 SRC_RPM := python-blivet-$(VERSION)-$(REL).$(DIST).src.rpm
 SRC_FILE := blivet-$(VERSION).tar.gz blivet-$(VERSION)-tests.tar.gz
+FEDORA_SOURCES := https://src.fedoraproject.org/rpms/python-blivet/raw/f$(subst fc,,$(DIST))/f/sources
 
 BUILDER_DIR ?= ../..
 SRC_DIR ?= qubes-src
@@ -26,3 +27,7 @@ get-sources: $(SRC_FILE)
 .PHONY: verify-sources
 verify-sources:
 	@true
+
+.PHONY: update-sources
+update-sources:
+	@$(BUILDER_DIR)/$(SRC_DIR)/builder-rpm/scripts/generate-hashes-from-sources $(FEDORA_SOURCES)
