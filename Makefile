@@ -3,10 +3,12 @@ VERSION := $(shell cat version)
 REL := $(shell cat rel)
 
 FEDORA_SOURCES := https://src.fedoraproject.org/rpms/python-blivet/raw/f$(subst fc,,$(DIST))/f/sources
-
-DISTFILES_MIRROR ?= http://ftp.qubes-os.org/distfiles/
 SRC_FILE := blivet-$(VERSION).tar.gz blivet-$(VERSION)-tests.tar.gz
 
+BUILDER_DIR ?= ../..
+SRC_DIR ?= qubes-src
+
+DISTFILES_MIRROR ?= http://ftp.qubes-os.org/distfiles/
 UNTRUSTED_SUFF := .UNTRUSTED
 FETCH_CMD := wget --no-use-server-timestamps -q -O
 
