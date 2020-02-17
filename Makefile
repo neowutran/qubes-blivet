@@ -8,7 +8,7 @@ SRC_FILE := blivet-$(VERSION).tar.gz blivet-$(VERSION)-tests.tar.gz
 BUILDER_DIR ?= ../..
 SRC_DIR ?= qubes-src
 
-DISTFILES_MIRROR ?= http://ftp.qubes-os.org/distfiles/
+DISTFILES_MIRROR ?= https://ftp.qubes-os.org/distfiles/
 UNTRUSTED_SUFF := .UNTRUSTED
 FETCH_CMD := wget --no-use-server-timestamps -q -O
 
